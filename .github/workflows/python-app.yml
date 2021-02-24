@@ -33,9 +33,9 @@ jobs:
         pytest
     - name: Deploy to Heroku
       env:
-        HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
-        HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
-      if: github.ref == 'refs/heads/master' && job.status == 'success'
+        HEROKU_API_TOKEN: 0d7201de-6682-43b8-a0a3-0e66477a6f5d
+        HEROKU_APP_NAME: sleepy-fortress-51836
+      if: github.ref == 'refs/heads/masterbranch' && job.status == 'success'
       run: |
         git remote add heroku https://heroku:$HEROKU_API_TOKEN@git.heroku.com/$HEROKU_APP_NAME.git
         git push heroku HEAD:master -f
